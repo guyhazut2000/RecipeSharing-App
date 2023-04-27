@@ -1,6 +1,8 @@
 import mongoose, { Model, Schema, Types } from "mongoose";
 import { Recipe, Comment, Rating } from "../types/recipe.type";
-
+/**
+ * a Mongoose schema and model for a recipe in a recipe application.
+ */
 const RecipeSchema = new Schema<Recipe>(
   {
     title: {

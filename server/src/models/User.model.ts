@@ -1,6 +1,8 @@
 import mongoose, { Model, Schema } from "mongoose";
 import User, { Permission, Role } from "../types/user.type";
-
+/**
+ * a Mongoose schema and model for a User in a User application.
+ */
 const userSchema = new Schema<User>(
   {
     username: {
