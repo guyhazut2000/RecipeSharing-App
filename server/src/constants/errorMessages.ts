@@ -1,0 +1,27 @@
+export enum ErrorMessage {
+  INVALID_PASSWORD_LENGTH = "'Password' must be between 8 and 50 characters.",
+  INVALID_EMAIL = "Please enter a valid email address. For example: john@example.com",
+  INVALID_USERNAME = "'Username' must be between 2 and 50 characters.",
+  INVALID_PASSWORD = "Invalid 'Password'.",
+  INVALID_ROLE = "Invalid 'Role'. Role must be one of ['user', 'admin'].",
+  INVALID_ID = "Invalid 'id'. 'id' type must be mongoose.ObjectId type.",
+  MISSING_ID = "Missing 'id' property in request body",
+  MISSING_EMAIL = "Missing 'Email' property in request body",
+  MISSING_USERNAME = "Missing 'username' property in request body",
+  MISSING_PASSWORD = "Missing 'Password' property in request body",
+  MISSING_ROLE = "Missing 'role' property in request body",
+  SERVER_ERROR = "An internal server error occurred. Please try again later.",
+  // TOKEN
+  MISSING_TOKEN = "Missing Authentication Token.",
+  INVALID_ACCESS_TOKEN = "Invalid or expired accessToken.",
+  INVALID_REFRESH_TOKEN = "Invalid or expired refreshToken.",
+  AUTH_TOKEN_FAILURE = "Failed to sign authorization token.",
+  MISSING_TOKEN_HEADER = "Missing authorization Header. Please provide Header that start with 'Bearer '",
+  HASH_PASSWORD_ERROR = "Error while hashing password.",
+  COMPARE_PASSWORD_ERROR = "Error while comparing passwords.",
+  // AUTH
+  FORBIDDEN = "You don't have permission to access this resource on this server.",
+  USER_NOT_FOUND = "User not found.",
+  UNAUTHORIZED = "The access token provided in the request does not match the data in the request body or params. Please provide valid authentication and try again.",
+  UNAUTHORIZED_USER_ID_MISMATCH = "The user ID in the request body/parameters does not match the user ID associated with the access token. Please check your user ID and try again.",
+}

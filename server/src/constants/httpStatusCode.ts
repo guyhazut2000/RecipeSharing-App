@@ -1,0 +1,31 @@
+export enum HttpStatusCode {
+  // 200-299
+  OK = 200,
+  CREATED = 201,
+  ACCEPTED = 202,
+  NO_CONTENT = 204,
+  // 400-499
+  BAD_REQUEST = 400,
+  UNAUTHORIZED = 401,
+  PAYMENT_REQUIRED = 402,
+  FORBIDDEN = 403,
+  NOT_FOUND = 404,
+  METHOD_NOT_ALLOWED = 405,
+  CONFLICT = 409,
+  // 500-599
+  INTERNAL_SERVER_ERROR = 500,
+  NOT_IMPLEMENTED = 501,
+  BAD_GATEWAY = 502,
+  SERVICE_UNAVAILABLE = 503,
+  GATEWAY_TIMEOUT = 504,
+}
+
+export type HttpErrorCode =
+  | HttpStatusCode.BAD_REQUEST
+  | HttpStatusCode.UNAUTHORIZED
+  | HttpStatusCode.PAYMENT_REQUIRED
+  | HttpStatusCode.FORBIDDEN
+  | HttpStatusCode.NOT_FOUND
+  | HttpStatusCode.METHOD_NOT_ALLOWED
+  | HttpStatusCode.CONFLICT
+  | HttpStatusCode.INTERNAL_SERVER_ERROR;
