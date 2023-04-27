@@ -1,34 +1,34 @@
-import React from "react";
-import { getTokenFromStorage, removeTokenInStorage } from "../../utils/token";
-import * as UserService from "../../services/User";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import Navbar from "../../components/ui/Navbar";
+import * as RecipeService from "../../services/recipes";
+import RecipeList from "../../components/features/recipe/RecipeList";
 
 const HomePage = () => {
-  const navigate = useNavigate();
+  const [recipes, setRecipes] = useState<Recipe[] | null>(null);
 
-  const handleLogout = async (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    event.preventDefault();
-
-    // get access token from storage
-    const accessToken = getTokenFromStorage("accessToken") || "";
-    console.log(accessToken);
-    // send access token with http request
-    try {
-      const response = await UserService.logout(accessToken);
-      // if logged off, remove token from storage
-      if (response.status === 200) {
-        removeTokenInStorage("accessToken");
-        navigate("/login");
+  useEffect(() => {
+    // get all recipes
+    const getAllRecipes = async () => {
+      try {
+        const response = await RecipeService.getRecipes();
+        setRecipes(response.data);
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    };
+    getAllRecipes();
+  }, []);
+
   return (
     <div>
-      <button onClick={(e) => handleLogout(e)}>Logout</button>
+      {/* TODO: add navbar with login/logout buttons*/}
+      <Navbar />
+      {/* TODO: add home page header for recipes */}
+      <h1>Some recipe header</h1>
+      <h4>some recipes info</h4>
+      {/* TODO: display recipes (10 per page) with a sort/filter options */}
+      <h3>Display all recipes</h3>
+      <RecipeList recipes={recipes} />
     </div>
   );
 };

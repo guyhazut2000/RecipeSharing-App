@@ -1,26 +1,21 @@
 import axios from "../config/axios";
 
 export const getRecipes = async () => {
-  const response = await axios.get("/recipes");
-  return response.data;
+  return await axios.get("/recipes");
 };
 
 export const getRecipeById = async (recipeId: string) => {
-  const response = await axios.get(`/recipes/${recipeId}`);
-  return response.data;
+  return await axios.get(`/recipes/${recipeId}`);
 };
 
 export const createRecipe = async (recipe: any) => {
-  const response = await axios.post("/recipes", recipe);
-  return response.data;
+  return await axios.post("/recipes", recipe);
 };
 
 export const updateRecipe = async (recipeId: string, recipe: any) => {
-  const response = await axios.put(`/recipes/${recipeId}`, recipe);
-  return response.data;
+  return await axios.put(`/recipes/${recipeId}`, recipe);
 };
 
 export const deleteRecipe = async (recipeId: string) => {
-  const response = await axios.delete(`/recipes/${recipeId}`);
-  return response.data;
+  return await axios.delete(`/recipes/${recipeId}`);
 };

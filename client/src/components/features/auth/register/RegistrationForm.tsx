@@ -1,7 +1,7 @@
 import React, { FormEvent, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import * as UserService from "../../../../services/User";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import {
   getErrorMessage,
   getErrorMessageDetails,

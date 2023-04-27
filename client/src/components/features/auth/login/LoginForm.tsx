@@ -27,7 +27,6 @@ const LoginForm: React.FC = () => {
     };
     try {
       const loggedUser = await UserService.login(formData);
-      console.log("user = ", loggedUser);
       if (loggedUser) {
         // Set accessToken in storage.
         setTokenInStorage("accessToken", loggedUser.data?.accessToken);
@@ -38,9 +37,9 @@ const LoginForm: React.FC = () => {
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        console.error(`Error message: ${getErrorMessage(error)}`);
-        console.error(`Status code: ${getErrorStatusCode(error)}`);
-        console.error(`Error message info: ${getErrorMessageDetails(error)}`);
+        // console.error(`Error message: ${getErrorMessage(error)}`);
+        // console.error(`Status code: ${getErrorStatusCode(error)}`);
+        // console.error(`Error message info: ${getErrorMessageDetails(error)}`);
         setError(getErrorMessageDetails(error));
       } else {
         setError("Something went wrong");
