@@ -6,12 +6,11 @@ import {
   generateRefreshToken,
 } from "../utils/auth.util";
 import { hashPassword } from "../utils/auth.util";
-import { ApiResponse } from "./api.controller";
 import { HttpStatusCode } from "../constants/httpStatusCode";
 import { ErrorMessage } from "../constants/errorMessages";
 import UserModel from "../models/User.model";
 import User, { Permission, Role } from "../types/user.type";
-import { ApiError } from "../utils/api.util";
+import ApiResponse, { ApiError } from "../utils/api.util";
 import { generateUserPermissions } from "../utils/user.util";
 import { AuthenticatedRequest } from "../types/auth.type";
 
@@ -64,7 +63,7 @@ Creates a new user and saves it to the database.
     });
 
     await newUser.save();
-    ApiResponse.success(res, HttpStatusCode.OK);
+    ApiResponse.success(res, HttpStatusCode.CREATED);
   } catch (err) {
     next(err);
   }

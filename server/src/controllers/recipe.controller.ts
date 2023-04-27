@@ -1,9 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { Recipe } from "../types/recipe.type";
 import RecipeModel from "../models/Recipe.model";
-import { ApiResponse } from "./api.controller";
 import { HttpStatusCode } from "../constants/httpStatusCode";
-import { ApiError } from "../utils/api.util";
+import ApiResponse, { ApiError } from "../utils/api.util";
 import { AuthenticatedRequest } from "../types/auth.type";
 import { Comment, Rating } from "../types/recipe.type";
 import mongoose, { Types } from "mongoose";
