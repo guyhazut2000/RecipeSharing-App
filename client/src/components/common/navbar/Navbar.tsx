@@ -1,11 +1,11 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import Logout from "@features/auth/logout";
+import userService from "@features/auth/services/user.service";
 import {
   getTokenFromStorage,
   removeTokenInStorage,
-} from "../../../features/shared/utils/token.util";
-import * as UserService from "../../../features/auth/services/User";
-import Logout from "../../../features/auth/logout";
+} from "@features/shared/utils/token.util";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Navbar = () => {
 
     try {
       // send access token with http request
-      const response = await UserService.logout(accessToken);
+      const response = await userService.logout(accessToken);
       // if logged off, remove token from storage
       if (response.status === 200) {
         removeTokenInStorage("accessToken");

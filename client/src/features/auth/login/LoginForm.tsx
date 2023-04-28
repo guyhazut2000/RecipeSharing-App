@@ -1,17 +1,13 @@
 import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import * as UserService from "../../../../services/User";
 import axios from "axios";
-import {
-  getErrorMessage,
-  getErrorMessageDetails,
-  getErrorStatusCode,
-} from "../../../../utils/httpError.util";
-import { LoginUser } from "../../../../types/user.types";
-import { setTokenInStorage } from "../../../../utils/token.util";
-import { routes } from "../../../../config/routes";
+import { LoginUser } from "../types/user.types";
+import { setTokenInStorage } from "@features/shared/utils/token.util";
+import { routes } from "@config/routes";
+import { getErrorMessageDetails } from "@features/shared/utils/httpError.util";
+import UserService from "../services/user.service";
 
-const LoginForm: React.FC = () => {
+const LoginForm = () => {
   const navigate = useNavigate();
 
   const emailRef = useRef<HTMLInputElement>(null);

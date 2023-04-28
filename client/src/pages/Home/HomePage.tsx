@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import * as RecipeService from "../../features/recipe/services/recipes.service";
-import Navbar from "src/components/common/navbar";
 import RecipeList from "@features/recipe/components/RecipeList";
+import Navbar from "@component/navbar";
+import recipesService from "@features/recipe/services/recipes.service";
 
 const HomePage = () => {
   const [recipes, setRecipes] = useState<Recipe[] | null>(null);
@@ -10,7 +10,7 @@ const HomePage = () => {
     // get all recipes
     const getAllRecipes = async () => {
       try {
-        const response = await RecipeService.getRecipes();
+        const response = await recipesService.getRecipes();
         setRecipes(response.data);
       } catch (error) {
         console.log(error);

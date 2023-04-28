@@ -1,14 +1,14 @@
 import React, { FormEvent, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import * as UserService from "../../../../services/User";
 import axios from "axios";
+import userService from "../services/user.service";
 import {
   getErrorMessage,
   getErrorMessageDetails,
   getErrorStatusCode,
-} from "../../../../utils/httpError.util";
-import { RegistrationUser } from "../../../../types/user.types";
-import { routes } from "../../../../config/routes";
+} from "@features/shared/utils/httpError.util";
+import { RegistrationUser } from "../types/user.types";
+import { routes } from "@config/routes";
 
 type Props = {};
 
@@ -29,7 +29,7 @@ const RegistrationForm: React.FC = (props: Props) => {
       role: "user",
     };
     try {
-      const createdUser = await UserService.create(formData);
+      const createdUser = await userService.create(formData);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.error(`Error message: ${getErrorMessage(error)}`);
