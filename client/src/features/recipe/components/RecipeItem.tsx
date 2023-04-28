@@ -4,8 +4,8 @@ type Props = {
   title: string;
 };
 
-const RecipeListItem = ({ title }: Props) => {
+const RecipeItem = ({ title }: Props) => {
   return <div>{title}</div>;
 };
 
-export default RecipeListItem;
+export default RecipeItem;

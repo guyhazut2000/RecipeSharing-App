@@ -6,8 +6,9 @@ import {
   getErrorMessage,
   getErrorMessageDetails,
   getErrorStatusCode,
-} from "../../../../utils/helpers";
-import { RegistrationUser } from "../../../../types/user";
+} from "../../../../utils/httpError.util";
+import { RegistrationUser } from "../../../../types/user.types";
+import { routes } from "../../../../config/routes";
 
 type Props = {};
 
@@ -29,7 +30,6 @@ const RegistrationForm: React.FC = (props: Props) => {
     };
     try {
       const createdUser = await UserService.create(formData);
-      console.log(createdUser);
     } catch (error) {
       if (axios.isAxiosError(error)) {
         console.error(`Error message: ${getErrorMessage(error)}`);
@@ -65,7 +65,7 @@ const RegistrationForm: React.FC = (props: Props) => {
         <div>{error && <p className="text-danger">{error}</p>}</div>
       </form>
       <p>Already have an account ?</p>
-      <Link to={"/login"}>Log in</Link>
+      <Link to={routes.login}>Log in</Link>
     </div>
   );
 };

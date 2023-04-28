@@ -1,5 +1,4 @@
-import React from "react";
-import RecipeListItem from "./RecipeListItem";
+import RecipeItem from "./RecipeItem";
 
 type Props = {
   recipes: Recipe[] | null;
@@ -14,7 +13,7 @@ const RecipeList = ({ recipes }: Props) => {
       <button>Filter</button>
       <div>
         {recipes?.map((recipe, key) => (
-          <RecipeListItem title={recipe.title} key={key} />
+          <RecipeItem title={recipe.title} key={key} />
         ))}
       </div>
     </div>

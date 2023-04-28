@@ -6,9 +6,10 @@ import {
   getErrorMessage,
   getErrorMessageDetails,
   getErrorStatusCode,
-} from "../../../../utils/helpers";
-import { LoginUser } from "../../../../types/user";
-import { setTokenInStorage } from "../../../../utils/token";
+} from "../../../../utils/httpError.util";
+import { LoginUser } from "../../../../types/user.types";
+import { setTokenInStorage } from "../../../../utils/token.util";
+import { routes } from "../../../../config/routes";
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ const LoginForm: React.FC = () => {
         // TODO: Set user in redux store.
 
         // Go to Home page
-        navigate("/");
+        navigate(routes.home);
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -64,7 +65,7 @@ const LoginForm: React.FC = () => {
       </form>
       {error && <p className="text-danger">{error}</p>}
       <p>Don't have an account ?</p>
-      <Link to={"/register"}>Register</Link>
+      <Link to={routes.register}>Register</Link>
     </div>
   );
 };

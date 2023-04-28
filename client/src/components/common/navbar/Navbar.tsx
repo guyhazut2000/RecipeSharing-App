@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import {
   getTokenFromStorage,
   removeTokenInStorage,
-} from "../../../utils/token";
-import * as UserService from "../../../services/User";
-import Logout from "../../features/auth/logout";
+} from "../../../features/shared/utils/token.util";
+import * as UserService from "../../../features/auth/services/User";
+import Logout from "../../../features/auth/logout";
 
 const Navbar = () => {
   const navigate = useNavigate();

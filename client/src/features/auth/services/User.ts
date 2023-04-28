@@ -1,6 +1,6 @@
-import axios from "../config/axios";
+import axios from "../../../config/axios";
 import Cookies from "js-cookie";
-import { LoginUser, LogoutUser, RegistrationUser } from "../types/user";
+import { LoginUser, LogoutUser, RegistrationUser } from "../types/user.types";
 
 export const getUserById = async (userId: string) => {
   return await axios.get(`/users/${userId}`);
