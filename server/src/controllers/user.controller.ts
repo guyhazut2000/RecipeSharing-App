@@ -206,14 +206,9 @@ export const loginUser = async (
     user.refreshToken = refreshToken;
     await user.save();
 
-    // Return tokens to client
-    res.cookie("refreshToken", refreshToken, {
-      httpOnly: true,
-      // path: "/api/v1/auth/refresh-token",
-    });
-
     ApiResponse.success(res, HttpStatusCode.OK, {
       accessToken,
+      refreshToken,
       user: {
         id: userInfo._id,
         username: userInfo.username,

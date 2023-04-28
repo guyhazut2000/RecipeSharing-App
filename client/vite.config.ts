@@ -10,6 +10,7 @@ export default defineConfig({
       "@features": "/src/features",
       "@component": "/src/components/common",
       "@config": "/src/config",
+      "@constants": "/src/constants",
     },
   },
 });

@@ -7,5 +7,5 @@ export interface User {
 export interface RegistrationUser extends User {
   role: string;
 }
-export type LoginUser = Omit<User, "username">;
+
 export type LogoutUser = Omit<User, "username">;

@@ -19,7 +19,7 @@ export const refreshToken = async (
   next: NextFunction
 ) => {
   try {
-    const { refreshToken } = req.cookies;
+    const { refreshToken } = req.body;
     console.log(refreshToken);
 
     if (!refreshToken) {
@@ -41,7 +41,7 @@ export const refreshToken = async (
 
     // issue new access token
     const accessToken = await generateAccessToken(user.toObject());
-    res.json({ accessToken, refreshToken });
+    res.status(200).json({ accessToken, refreshToken });
   } catch (error) {
     next(error);
   }

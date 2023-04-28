@@ -2,7 +2,7 @@ const setTokenInStorage = (key: string, value: string) => {
   localStorage.setItem(key, value);
 };
 
-const removeTokenInStorage = (key: string) => {
+const removeTokenFromStorage = (key: string) => {
   localStorage.removeItem(key);
 };
 
@@ -11,4 +11,4 @@ const getTokenFromStorage = (key: string): string | null => {
   return value;
 };
 
-export { setTokenInStorage, getTokenFromStorage, removeTokenInStorage };
+export { setTokenInStorage, getTokenFromStorage, removeTokenFromStorage };

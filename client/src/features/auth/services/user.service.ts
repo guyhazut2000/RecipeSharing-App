@@ -1,4 +1,4 @@
-import { LoginUser, LogoutUser, RegistrationUser } from "../types/user.types";
+import { RegistrationUser } from "../types/user.types";
 import axios from "@config/axios";
 
 class UserService {
@@ -16,15 +16,6 @@ class UserService {
 
   remove = async (userId: string) => {
     return await axios.delete(`/users/${userId}`);
-  };
-
-  login = async (user: LoginUser) => {
-    return await axios.post("/users/auth/login", user);
-  };
-
-  logout = async (token: string) => {
-    axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-    return await axios.post("/users/auth/logout");
   };
 }
 
