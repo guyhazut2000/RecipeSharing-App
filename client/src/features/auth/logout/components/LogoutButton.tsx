@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import axios from "axios";
 // features
-import TokenService from "@features/auth/token/services/token.service";
+import TokenService from "@features/shared/services/token.service";
 import {
   getTokenFromStorage,
   removeTokenFromStorage,

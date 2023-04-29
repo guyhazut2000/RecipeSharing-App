@@ -1,13 +1,13 @@
 import React, { FormEvent, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import userService from "../services/user.service";
+import userService from "../shared/services/user.service";
 import {
   getErrorMessage,
   getErrorMessageDetails,
   getErrorStatusCode,
 } from "@features/shared/utils/httpError.util";
-import { RegistrationUser } from "../types/user.types";
+import { RegistrationUser } from "../shared/types/user.types";
 import { routes } from "@constants/routes";
 
 type Props = {};

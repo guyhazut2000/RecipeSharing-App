@@ -8,7 +8,7 @@ import {
   setTokenInStorage,
 } from "@features/shared/utils/token.util";
 import axios from "axios";
-import tokenService from "@features/auth/token/services/token.service";
+import tokenService from "@features/shared/services/token.service";
 import { useNavigate } from "react-router-dom";
 
 type Props = {};
