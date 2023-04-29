@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/Home";
 import RegisterPage from "./pages/Registration";
 import LoginPage from "./pages/Login";
-import { routes } from "./config/routes";
+import { routes } from "./constants/routes";
 import UserRecipesPage from "./pages/UserRecipes/UserRecipesPage";
 
 const App = () => {

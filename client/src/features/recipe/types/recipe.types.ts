@@ -13,6 +13,7 @@ export interface Recipe {
   comments?: Comment[];
   createdBy: {
     username: string;
+    userId?: string;
   };
 }
 

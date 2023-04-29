@@ -3,10 +3,11 @@ type Props = {
   id: string;
   title: string;
   description: string;
+  url: string;
   rating?: Rating[];
 };
 
-const RecipeItem = ({ id, title, description, rating }: Props) => {
+const RecipeItem = ({ id, title, description, rating, url }: Props) => {
   const calcRating = (array: Rating[] | undefined): number => {
     if (typeof array !== undefined) {
       const sum = array!.reduce((sum, rating) => sum + rating.value, 0);
@@ -17,11 +18,7 @@ const RecipeItem = ({ id, title, description, rating }: Props) => {
 
   return (
     <div className="card" style={{ width: "18rem" }}>
-      <img
-        src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cGFzdGF8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
-        className="card-img-top"
-        alt="recipe image"
-      />
+      <img src={url} className="card-img-top" alt="recipe image" />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>

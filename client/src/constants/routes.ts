@@ -4,4 +4,5 @@ export const routes = {
   register: "/register",
   about: "/about",
   userRecipes: "/users/:userId/recipes",
+  createRecipe: "/users/:userId/recipes",
 };

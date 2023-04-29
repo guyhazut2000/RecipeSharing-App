@@ -1,4 +1,6 @@
 import axios from "@config/axios";
+import { routes } from "@constants/routes";
+import { Recipe } from "../types/recipe.types";
 class RecipeService {
   getRecipes = async () => {
     return await axios.get("/recipes");
@@ -13,8 +15,9 @@ class RecipeService {
     return await axios.get(`/users/${userId}/recipes`);
   };
 
-  createRecipe = async (recipe: any) => {
-    return await axios.post("/recipes", recipe);
+  createRecipe = async (recipe: Recipe, accessToken: string) => {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    return await axios.post(routes.createRecipe, recipe);
   };
 
   updateRecipe = async (recipeId: string, recipe: any) => {

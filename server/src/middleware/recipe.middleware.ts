@@ -37,21 +37,6 @@ const validateRecipeCreateRequest = async (
       );
     }
 
-    const { userId }: { userId: string } = req.body;
-    const tokenUserId = req.user?.id?.toString();
-    if (!userId) {
-      throw new ApiError(
-        HttpStatusCode.BAD_REQUEST,
-        "Missing user ID property in request body."
-      );
-    }
-    if (userId !== tokenUserId || userId !== req.params.userId) {
-      throw new ApiError(
-        HttpStatusCode.BAD_REQUEST,
-        ErrorMessage.UNAUTHORIZED_USER_ID_MISMATCH
-      );
-    }
-
     next(); // Call next middleware or route
   } catch (error) {
     return next(error);

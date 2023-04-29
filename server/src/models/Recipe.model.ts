@@ -22,7 +22,7 @@ const RecipeSchema = new Schema<Recipe>(
       required: true,
     },
     photo: {
-      type: Buffer,
+      type: String,
       default: null,
     },
     category: {

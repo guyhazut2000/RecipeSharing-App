@@ -117,7 +117,7 @@ const createRecipe = async (
     await newRecipe.save();
 
     // Send the response back to the client
-    ApiResponse.success(res, HttpStatusCode.OK, newRecipe);
+    ApiResponse.success(res, HttpStatusCode.CREATED);
   } catch (error) {
     next(error);
   }

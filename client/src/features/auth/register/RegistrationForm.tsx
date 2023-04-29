@@ -8,7 +8,7 @@ import {
   getErrorStatusCode,
 } from "@features/shared/utils/httpError.util";
 import { RegistrationUser } from "../types/user.types";
-import { routes } from "@config/routes";
+import { routes } from "@constants/routes";
 
 type Props = {};
 

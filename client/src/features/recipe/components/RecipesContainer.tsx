@@ -3,6 +3,7 @@ import RecipeList from "./RecipeList";
 import recipesService from "../services/recipes.service";
 import { Recipe } from "../types/recipe.types";
 import { getTokenFromStorage } from "@features/shared/utils/token.util";
+import AddRecipe from "./AddRecipe";
 
 type Props = {
   userId?: string;
@@ -43,7 +44,10 @@ const RecipesContainer = ({ userId }: Props) => {
           </p>
         </div>
       ) : (
-        <h3 className="mt-5 text-center fw-bold text-primary">My Recipes</h3>
+        <div className="mx-5 mb-5">
+          <h3 className="mt-5 text-center fw-bold text-primary">My Recipes</h3>
+          <AddRecipe />
+        </div>
       )}
       {/* recipes list */}
       <RecipeList recipes={recipes} />

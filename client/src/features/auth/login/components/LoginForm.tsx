@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 // config
-import { routes } from "@config/routes";
+import { routes } from "@constants/routes";
 // features
 import { setTokenInStorage } from "@features/shared/utils/token.util";
 import { getErrorMessageDetails } from "@features/shared/utils/httpError.util";

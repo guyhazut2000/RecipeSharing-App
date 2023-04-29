@@ -6,8 +6,8 @@ const removeTokenFromStorage = (key: string) => {
   localStorage.removeItem(key);
 };
 
-const getTokenFromStorage = (key: string): string | null => {
-  const value: string | null = localStorage.getItem(key);
+const getTokenFromStorage = (key: string): string => {
+  const value: string = localStorage.getItem(key) || "";
   return value;
 };
 
