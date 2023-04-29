@@ -75,6 +75,13 @@ const LogoutButton = () => {
         // Dispatch logout failure
         dispatch(logoutFailure());
       }
+      dispatch(logoutFailure());
+
+      removeTokenFromStorage("accessToken");
+      removeTokenFromStorage("refreshToken");
+
+      // go to login page
+      navigate("/login");
     }
   };
 

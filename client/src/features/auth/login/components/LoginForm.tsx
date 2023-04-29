@@ -7,7 +7,7 @@ import { routes } from "@config/routes";
 import { setTokenInStorage } from "@features/shared/utils/token.util";
 import { getErrorMessageDetails } from "@features/shared/utils/httpError.util";
 // services
-import UserService from "../../services/user.service";
+import loginService from "../services/login.service";
 // types
 import { LoginUser } from "../types/login.types";
 // redux slices
@@ -37,7 +37,7 @@ const LoginForm = () => {
     try {
       // Start user login process
       dispatch(loginStart());
-      const response = await UserService.login(formUserData);
+      const response = await loginService.login(formUserData);
       if (response) {
         // Set user in app store
         dispatch(loginSuccess(response.data.user));

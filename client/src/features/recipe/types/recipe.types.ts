@@ -1,4 +1,5 @@
-interface Recipe {
+export interface Recipe {
+  _id?: string;
   title: string;
   description: string;
   ingredients: string[];
@@ -15,11 +16,11 @@ interface Recipe {
   };
 }
 
-interface Comment {
+export interface Comment {
   username: string;
   text: string;
 }
 
-interface Rating {
+export interface Rating {
   value: number;
 }

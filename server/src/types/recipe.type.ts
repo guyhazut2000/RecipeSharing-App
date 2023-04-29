@@ -17,7 +17,7 @@ interface Recipe extends Document {
   cuisine: string[];
   createdAt: Date;
   updatedAt: Date;
-  photo?: Buffer;
+  photo?: string;
   ratings?: Rating[];
   comments?: Comment[];
   createdBy: {

@@ -8,7 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@features": "/src/features",
-      "@component": "/src/components/common",
+      "@component": "/src/components",
       "@config": "/src/config",
       "@constants": "/src/constants",
     },

@@ -8,6 +8,11 @@ class RecipeService {
     return await axios.get(`/recipes/${recipeId}`);
   };
 
+  getUserRecipesByUserId = async (userId: string, accessToken: string) => {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    return await axios.get(`/users/${userId}/recipes`);
+  };
+
   createRecipe = async (recipe: any) => {
     return await axios.post("/recipes", recipe);
   };

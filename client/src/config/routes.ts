@@ -3,4 +3,5 @@ export const routes = {
   login: "/login",
   register: "/register",
   about: "/about",
+  userRecipes: "/users/:userId/recipes",
 };
