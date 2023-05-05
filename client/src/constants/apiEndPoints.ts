@@ -4,8 +4,15 @@ const endPoint = {
     login: "/users/auth/login",
     logout: "/users/auth/logout",
     register: "/users/register",
-    delete: "/users/:userId",
-    update: "/users/:userId",
+    deleteOne: "/users/:userId",
+    updateOne: "/users/:userId",
+  },
+  recipes: {
+    getAll: "/users/:userId/recipes",
+    getById: "/users/:userId/recipes/:recipeId",
+    createOne: "/users/:userId/recipes",
+    updateOne: "/users/:userId/recipes",
+    deleteOne: "/users/:userId/recipes",
   },
 };
 

@@ -1,4 +1,5 @@
 import { Rating } from "../types/recipe.types";
+import { calcRating } from "../utils/recipe.util";
 type Props = {
   id: string;
   title: string;
@@ -8,25 +9,17 @@ type Props = {
 };
 
 const RecipeItem = ({ id, title, description, rating, url }: Props) => {
-  const calcRating = (array: Rating[] | undefined): number => {
-    if (typeof array !== undefined) {
-      const sum = array!.reduce((sum, rating) => sum + rating.value, 0);
-      return sum / array!.length || 0;
-    }
-    return 0;
-  };
-
   return (
-    <div className="card" style={{ width: "18rem" }}>
-      <img src={url} className="card-img-top" alt="recipe image" />
-      <div className="card-body">
-        <h5 className="card-title">{title}</h5>
-        <p className="card-text">{description}</p>
-        <div className="d-flex gap-2 align-content-center justify-items-center">
-          <a href={`/recipes/${id}`} className="btn btn-primary">
+    <div className="card d-flex flex-column m-0 p-0" style={{ width: "18rem" }}>
+      <img src={url} className="img-fluid rounded h-50" alt="recipe image" />
+      <div className="card-body d-flex flex-column justify-content-around">
+        <h5 className="card-title">Title - {title}</h5>
+        <p className="card-text">Description - {description}</p>
+        <div>
+          <p>Rating - {calcRating(rating)}/5</p>
+          <a href={`/recipes/${id}`} className="btn btn-primary w-100">
             View Recipe
           </a>
-          <p>Rating - {calcRating(rating)}</p>
         </div>
       </div>
     </div>

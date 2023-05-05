@@ -5,4 +5,5 @@ export const routes = {
   about: "/about",
   userRecipes: "/users/:userId/recipes",
   createRecipe: "/users/:userId/recipes",
+  viewRecipe: "/recipes/:recipeId",
 };

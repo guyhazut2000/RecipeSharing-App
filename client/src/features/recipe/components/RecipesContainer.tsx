@@ -17,8 +17,8 @@ const RecipesContainer = ({ userId }: Props) => {
       const accessToken = getTokenFromStorage("accessToken") || "";
       try {
         const response = userId
-          ? await recipesService.getUserRecipesByUserId(userId, accessToken)
-          : await recipesService.getRecipes();
+          ? await recipesService.getAllByUserId(userId, accessToken)
+          : await recipesService.getAll();
         if (response.status === 200) {
           setRecipes(response.data);
           console.log(response.data);

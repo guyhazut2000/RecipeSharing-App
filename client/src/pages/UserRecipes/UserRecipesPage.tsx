@@ -11,9 +11,7 @@ const UserRecipesPage = (props: Props) => {
   return (
     <div className="w-100 h-100 recipe-container">
       <Navbar />
-      <div>
-        <RecipesContainer userId={user.id} />
-      </div>
+      <RecipesContainer userId={user.id} />
       <Footer />
     </div>
   );
