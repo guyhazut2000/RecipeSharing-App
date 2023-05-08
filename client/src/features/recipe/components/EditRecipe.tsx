@@ -4,17 +4,17 @@ import { Recipe } from "../types/recipe.types";
 import { useSelector } from "react-redux";
 import {
   getTokenFromStorage,
-  removeTokenFromStorage,
   setTokenInStorage,
 } from "@features/shared/utils/token.util";
 import axios from "axios";
 import tokenService from "@features/shared/services/token.service";
-import { useNavigate } from "react-router-dom";
 
-type Props = {};
+type EditRecipeProps = {
+  userId: string;
+  recipeId: string;
+};
 
-const AddRecipe = (props: Props) => {
-  const navigate = useNavigate();
+const EditRecipe = ({ userId, recipeId }: EditRecipeProps) => {
   const user = useSelector((state: any) => state.user.user);
 
   const titleRef = useRef<HTMLInputElement>(null);
@@ -27,7 +27,7 @@ const AddRecipe = (props: Props) => {
   const [ingredients, setIngredients] = useState<string>("");
 
   const handleShowModal = () => {
-    const modal: HTMLElement = document.querySelector("#addRecipeModal")!;
+    const modal: HTMLElement = document.querySelector("#editRecipeModal")!;
     modal.classList.add("show");
     modal.style.display = "block";
     modal.setAttribute("aria-hidden", "false");
@@ -35,14 +35,14 @@ const AddRecipe = (props: Props) => {
   };
 
   const handleCloseModal = () => {
-    const modal: HTMLElement = document.querySelector("#addRecipeModal")!;
+    const modal: HTMLElement = document.querySelector("#editRecipeModal")!;
     modal.classList.remove("show");
     modal.style.display = "none";
     modal.setAttribute("aria-hidden", "true");
     document.body.classList.remove("modal-open");
   };
 
-  const handleCreateRecipe = async (
+  const handleEditRecipe = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
@@ -53,6 +53,12 @@ const AddRecipe = (props: Props) => {
 
     console.log(title, imageURL, category, cuisine);
     console.log(directions, description, ingredients);
+    console.log(
+      typeof title,
+      typeof description,
+      typeof category,
+      typeof cuisine
+    );
 
     const recipe: Recipe = {
       title,
@@ -69,9 +75,11 @@ const AddRecipe = (props: Props) => {
     };
     // create new recipe
     try {
-      const response = await recipesService.create(
-        recipe,
-        getTokenFromStorage("accessToken")
+      const response = await recipesService.updateOne(
+        userId,
+        getTokenFromStorage("accessToken"),
+        recipeId,
+        recipe
       );
       if (response.status === 201) {
         console.log(response);
@@ -90,7 +98,7 @@ const AddRecipe = (props: Props) => {
             setTokenInStorage("accessToken", tokenResponse.data.accessToken);
 
             // try to create again
-            handleCreateRecipe(event);
+            handleEditRecipe(event);
           }
         } catch (error) {
           console.log(error);
@@ -104,15 +112,15 @@ const AddRecipe = (props: Props) => {
     <>
       <button
         type="button"
-        className="btn btn-outline-success"
+        className="btn btn-outline-primary"
         id="addRecipeButton"
         onClick={handleShowModal}
       >
-        Create Recipe
+        Edit Recipe
       </button>
       <div
         className="modal fade"
-        id="addRecipeModal"
+        id="editRecipeModal"
         tabIndex={-1}
         aria-labelledby="addRecipeModalLabel"
         aria-hidden="true"
@@ -121,7 +129,7 @@ const AddRecipe = (props: Props) => {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="addRecipeModalLabel">
-                Create New Recipe
+                Edit Recipe
               </h5>
               <button
                 type="button"
@@ -218,8 +226,8 @@ const AddRecipe = (props: Props) => {
               >
                 Close
               </button>
-              <button className="btn btn-primary" onClick={handleCreateRecipe}>
-                Create Recipe
+              <button className="btn btn-primary" onClick={handleEditRecipe}>
+                Update Recipe
               </button>
             </div>
           </div>
@@ -229,4 +237,4 @@ const AddRecipe = (props: Props) => {
   );
 };
 
-export default AddRecipe;
+export default EditRecipe;

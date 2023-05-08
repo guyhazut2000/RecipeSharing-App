@@ -4,9 +4,9 @@ import RecipesContainer from "@features/recipe/components/RecipesContainer";
 
 const HomePage = () => {
   return (
-    <div className="w-100 h-100 ">
-      <Navbar />
+    <div className="d-flex flex-column justify-content-between w-100 h-100 ">
       <div>
+        <Navbar />
         <RecipesContainer />
       </div>
       <Footer />

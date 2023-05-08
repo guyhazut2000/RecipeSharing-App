@@ -20,9 +20,11 @@ const RecipePage = (props: Props) => {
     fetchRecipe();
   }, []);
   return (
-    <div className="w-100 h-100 recipe-container">
-      <Navbar />
-      {!recipe ? <p>Loading ...</p> : <Recipe recipe={recipe} />}
+    <div className="d-flex flex-column justify-content-between w-100 h-100">
+      <div>
+        <Navbar />
+        {!recipe ? <p>Loading ...</p> : <Recipe recipe={recipe} />}
+      </div>
       <Footer />
     </div>
   );

@@ -15,17 +15,23 @@ class RecipeService {
     return await axios.get(`/users/${userId}/recipes`);
   };
 
-  createRecipe = async (recipe: Recipe, accessToken: string) => {
+  create = async (recipe: Recipe, accessToken: string) => {
     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
     return await axios.post(routes.createRecipe, recipe);
   };
 
-  updateRecipe = async (recipeId: string, recipe: any) => {
-    return await axios.put(`/recipes/${recipeId}`, recipe);
+  updateOne = async (
+    userId: string,
+    accessToken: string,
+    recipeId: string,
+    update: Recipe
+  ) => {
+    axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    return await axios.put(`/users/${userId}/recipes/${recipeId}`, update);
   };
 
-  deleteRecipe = async (recipeId: string) => {
-    return await axios.delete(`/recipes/${recipeId}`);
+  deleteOne = async (userId: string, recipeId: string) => {
+    return await axios.delete(`/users/${userId}/recipes/${recipeId}`);
   };
 }
 

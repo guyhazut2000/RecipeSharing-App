@@ -4,12 +4,13 @@ import recipesService from "../services/recipes.service";
 import { Recipe } from "../types/recipe.types";
 import { getTokenFromStorage } from "@features/shared/utils/token.util";
 import AddRecipe from "./AddRecipe";
+import RecipeSearch from "./RecipeSearch";
 
-type Props = {
+type RecipesContainerProps = {
   userId?: string;
 };
 
-const RecipesContainer = ({ userId }: Props) => {
+const RecipesContainer = ({ userId }: RecipesContainerProps) => {
   const [recipes, setRecipes] = useState<Recipe[]>([]);
 
   useEffect(() => {
@@ -34,7 +35,7 @@ const RecipesContainer = ({ userId }: Props) => {
     <div className="d-flex flex-column mx-auto">
       {/* recipe header */}
       {!userId ? (
-        <div>
+        <div className="d-flex flex-column m-auto">
           <h3 className="mt-5 text-center fw-bold text-primary">
             Our Delicious Recipes
           </h3>
@@ -42,6 +43,7 @@ const RecipesContainer = ({ userId }: Props) => {
           <p className="mb-5 text-center text-secondary">
             Search for the recipe you want in an easy, fast and convenient way.
           </p>
+          <RecipeSearch />
         </div>
       ) : (
         <div className="mx-5 mb-5">
@@ -50,7 +52,7 @@ const RecipesContainer = ({ userId }: Props) => {
         </div>
       )}
       {/* recipes list */}
-      <RecipeList recipes={recipes} />
+      <RecipeList recipes={recipes} userId={userId} />
     </div>
   );
 };

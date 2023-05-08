@@ -260,8 +260,8 @@ const validateRecipeUpdateRequest = async (
     if (
       typeof title !== "string" ||
       typeof description !== "string" ||
-      typeof category !== "string" ||
-      typeof cuisine !== "string"
+      (typeof category !== "string" && !Array.isArray(category)) ||
+      (typeof cuisine !== "string" && !Array.isArray(cuisine))
     ) {
       throw new ApiError(
         HttpStatusCode.BAD_REQUEST,

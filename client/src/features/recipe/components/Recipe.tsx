@@ -8,7 +8,7 @@ type Props = {
 
 const Recipe = ({ recipe }: Props) => {
   return (
-    <div className="container">
+    <div className="container ">
       <p>By: {recipe.createdBy.username}</p>
       <p>Created At: {new Date(recipe.createdAt!).toDateString()}</p>
       {/* <img className="col" src={recipe.photo} alt="image" /> */}

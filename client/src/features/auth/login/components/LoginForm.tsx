@@ -64,81 +64,79 @@ const LoginForm = () => {
 
   return (
     <section className="vh-100 ">
-      <div className="container-fluid h-custom">
-        <div className="row d-flex flex-row justify-content-center align-items-center h-100">
-          <div className="col-md-9 col-lg-6 col-xl-5 align-self-center justify-self-center">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-              className="img-fluid"
-              alt="Sample image"
-            />
-          </div>
-          <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1 align-self-center justify-self-center ">
-            <form onSubmit={handleLoginClick}>
-              <h3 className="text-primary text-center m-4 fw-bold">Login</h3>
-              <div className="form-outline mb-4">
-                <label className="form-label" htmlFor="email">
-                  Email address
-                </label>
+      <div className="container-fluid d-flex flex-column h-100">
+        <div className="align-self-center justify-self-center">
+          <img
+            src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+            className="img-fluid"
+            alt="Sample image"
+          />
+        </div>
+        <div className="col-sm-10 col-lg-8 col-xl-4 align-self-center justify-self-center ">
+          <form onSubmit={handleLoginClick}>
+            <h3 className="text-primary text-center m-4 fw-bold">Login</h3>
+            <div className="form-outline mb-4">
+              <label className="form-label" htmlFor="email">
+                Email address
+              </label>
+              <input
+                type="email"
+                ref={emailRef}
+                required
+                id="email"
+                className="form-control form-control-lg"
+                placeholder="Enter a valid email address"
+              />
+            </div>
+
+            <div className="form-outline mb-3">
+              <label className="form-label" htmlFor="password">
+                Password
+              </label>
+              <input
+                type="password"
+                ref={passwordRef}
+                required
+                id="password"
+                className="form-control form-control-lg"
+                placeholder="Enter password"
+              />
+            </div>
+
+            <div className="d-flex justify-content-between align-items-center">
+              <div className="form-check mb-0">
                 <input
-                  type="email"
-                  ref={emailRef}
-                  required
-                  id="email"
-                  className="form-control form-control-lg"
-                  placeholder="Enter a valid email address"
+                  className="form-check-input me-2"
+                  type="checkbox"
+                  value=""
+                  id="form2Example3"
                 />
-              </div>
-
-              <div className="form-outline mb-3">
-                <label className="form-label" htmlFor="password">
-                  Password
+                <label className="form-check-label" htmlFor="form2Example3">
+                  Remember me
                 </label>
-                <input
-                  type="password"
-                  ref={passwordRef}
-                  required
-                  id="password"
-                  className="form-control form-control-lg"
-                  placeholder="Enter password"
-                />
               </div>
+              <a href="#!" className="text-body">
+                Forgot password?
+              </a>
+            </div>
 
-              <div className="d-flex justify-content-between align-items-center">
-                <div className="form-check mb-0">
-                  <input
-                    className="form-check-input me-2"
-                    type="checkbox"
-                    value=""
-                    id="form2Example3"
-                  />
-                  <label className="form-check-label" htmlFor="form2Example3">
-                    Remember me
-                  </label>
-                </div>
-                <a href="#!" className="text-body">
-                  Forgot password?
-                </a>
-              </div>
-
-              <div className="text-center text-lg-start mt-4 pt-2">
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-lg"
-                  style={{ paddingLeft: "4rem", paddingRight: "4rem" }}
-                >
-                  Login
-                </button>
-                {error && <p className="fw-bold my-3 text-danger">{error}</p>}
-                <p className="small fw-bold mt-2 pt-1 mb-0">
-                  Don't have an account?{" "}
-                  <Link className="text-decoration-none" to={routes.register}>
-                    Register
-                  </Link>
-                </p>
-              </div>
-            </form>
-          </div>
+            <div className="text-center text-lg-start mt-4 pt-2">
+              <button
+                type="submit"
+                className="btn btn-primary btn-lg"
+                style={{ paddingLeft: "4rem", paddingRight: "4rem" }}
+              >
+                Login
+              </button>
+              {error && <p className="fw-bold my-3 text-danger">{error}</p>}
+              <p className="small fw-bold mt-2 pt-1 mb-0">
+                Don't have an account?{" "}
+                <Link className="text-decoration-none" to={routes.register}>
+                  Register
+                </Link>
+              </p>
+            </div>
+          </form>
         </div>
       </div>
     </section>

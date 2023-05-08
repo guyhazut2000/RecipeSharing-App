@@ -9,9 +9,11 @@ type Props = {};
 const UserRecipesPage = (props: Props) => {
   const user = useSelector((state: any) => state.user.user);
   return (
-    <div className="w-100 h-100 recipe-container">
-      <Navbar />
-      <RecipesContainer userId={user.id} />
+    <div className="d-flex flex-column justify-content-between w-100 h-100 ">
+      <div>
+        <Navbar />
+        <RecipesContainer userId={user.id} />
+      </div>
       <Footer />
     </div>
   );
